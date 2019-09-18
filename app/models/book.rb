@@ -13,11 +13,11 @@ class Book < ApplicationRecord
   validates :categories, presence: true
   validates :distributors, presence: true
   # mount_uploader :image, ImageUploader
-  validate :image_size
+  # validate :image_size
 
-  def image_size
-    if image.size > 5.megabytes
-      errors.add(:image, "should be less than 5MB")
-    end
-  end
+  # def image_size
+  #   if image.size > 5.megabytes
+  #     errors.add(:image, "should be less than 5MB")
+  #   end
+  # end
 end

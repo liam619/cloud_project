@@ -19,7 +19,7 @@ class BooksController < ApplicationController
     new_book = book_params
 
     # Set book created by current user
-    new_book[:user_id] = current_user.id
+    new_book[:author_id] = current_user.id
 
     # Perform validation in another method
     validate_param(new_book)

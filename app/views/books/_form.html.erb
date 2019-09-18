@@ -20,7 +20,7 @@
       <%#= form.select :prerequisites, options_from_collection_for_select(@books, :id, :name, @book.prerequisites.ids), {:include_hidden => false, :class => "form-control"}, {multiple: true} %>
 
       <%= form.label :distributors %>
-      <%= form.select :distributors, options_from_collection_for_select(@distributor, :id, :name, @book.distributors.ids), {:include_hidden => false, :class => "form-control"}, {multiple: true} %>
+      <%= form.select :distributors, options_from_collection_for_select(@distributors, :id, :name, @book.distributors.ids), {:include_hidden => false, :class => "form-control"}, {multiple: true} %>
 
       <%= form.label :image %>
       <%= form.file_field :image, accept: 'image/jpeg, image/gif, image/png' %>

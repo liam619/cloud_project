@@ -7,9 +7,9 @@
     <div class="row">
       <div class="col-md-3 text-center">
         <% unless @hide_for_view %>
-          <%= link_to c.user do %>
-            <p><%= gravatar_for(c.user, {size: 180}) %></p>
-            <p><h5>COORDINATOR : <%= c.user.name %></h5></p>
+          <%= link_to c.author do %>
+            <p><%= gravatar_for(c.author, {size: 180}) %></p>
+            <p><h5>COORDINATOR : <%= c.author.name %></h5></p>
           <% end %>
         <% end %>
       </div>
@@ -17,7 +17,7 @@
         <%= render 'shared/book_details', option: c %>
       </div>
       <div class="col-md-3">
-        <%= image_tag c.image, class: 'img-thumbnail' %>
+        <%#= image_tag c.image, class: 'img-thumbnail' %>
       </div>
     </div>
   <% end %>
