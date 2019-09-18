@@ -1,0 +1,15 @@
+
+<% provide(:title, @user.name) %>
+<div class="btm-line">
+  <h1>Coordinator : <%= yield :title %></h1>
+</div>
+
+<div class="container btm-line">
+  <div class="row">
+    <h1>
+      <%= gravatar_for(@user, { size: 180 }) %>
+    </h1>
+  </div>
+</div>
+
+<%= render 'shared/books_list' %>

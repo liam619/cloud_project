@@ -4,7 +4,7 @@ class Author < ApplicationRecord
   has_many :books
 
 
-  VALID_EMAIL_REGEX = /^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]{3}+\z/i
   VALID_PASS_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)[\w+\W].{7,}+/
 
   before_save {self.email = email.downcase}

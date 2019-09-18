@@ -1,0 +1,27 @@
+<div class="btm-line">
+  <h1><%= yield :title %></h1>
+</div>
+
+<%= render 'shared/error_messages', option: @user %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user, url: path) do |form| %>
+
+
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "input_box form-control", placeholder: ' Sam Smith' %>
+
+      <%= form.label :email %>
+      <%= form.email_field :email, class: "input_box form-control", placeholder: ' james@company.com' %>
+
+      <%= form.label :password %>
+      <%= form.password_field :password, class: "input_box form-control", placeholder: ' Must be at least 8 alphanumeric with symbol' %>
+
+      <%= form.label :password_confirmation, "Confirmation" %>
+      <%= form.password_field :password_confirmation, class: "input_box form-control" %>
+
+      <%= form.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
