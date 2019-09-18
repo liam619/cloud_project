@@ -56,7 +56,7 @@
               <% end %>
               <ul class="dropdown-menu">
                 <li><%= link_to "View Profile", current_user %></li>
-                <li><%= link_to "Edit Profile", edit_book_path(current_user) %></li>
+                <li><%= link_to "Edit Profile", edit_author_path(current_user) %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Log out", logout_path, method: :delete %></li>
               </ul>

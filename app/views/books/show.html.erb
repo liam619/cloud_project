@@ -17,7 +17,7 @@
     <% if is_admin? %>
       <%= link_to "Delete", book_path(@book.id), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "You sure?"} %>
     <% end %>
-    <%= link_to "Edit this course", edit_book_path, class: "btn btn-danger btn-sm" %>
+    <%= link_to "Edit this book", edit_book_path, class: "btn btn-danger btn-sm" %>
   </div>
 </div>
 
@@ -26,9 +26,9 @@
     <%= render "shared/book_details", option: @book %>
   </div>
   <div class="col-md-3 text-center">
-    <%= link_to @book.user do %>
-      <p><%= gravatar_for(@book.user, {size: 180}) %></p>
-      <p><h5>Brought to you by : <%= @book.user.name %></h5></p>
+    <%= link_to @book.author do %>
+      <p><%= gravatar_for(@book.author, {size: 180}) %></p>
+      <p><h5>Brought to you by : <%= @book.author.name %></h5></p>
     <% end %>
   </div>
 </div>

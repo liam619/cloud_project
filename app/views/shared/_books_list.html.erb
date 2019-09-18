@@ -9,7 +9,7 @@
         <% unless @hide_for_view %>
           <%= link_to c.author do %>
             <p><%= gravatar_for(c.author, {size: 180}) %></p>
-            <p><h5>COORDINATOR : <%= c.author.name %></h5></p>
+            <p><h5>Author : <%= c.author.name %></h5></p>
           <% end %>
         <% end %>
       </div>
@@ -17,7 +17,7 @@
         <%= render 'shared/book_details', option: c %>
       </div>
       <div class="col-md-3">
-        <%#= image_tag c.image, class: 'img-thumbnail' %>
+        <%= image_tag(c.image.url, class: 'img-thumbnail') if c.image.url %>
       </div>
     </div>
   <% end %>

@@ -40,7 +40,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    update_course = book_params
+    update_book = book_params
 
     validate_param(update_book)
 
@@ -102,9 +102,9 @@ class BooksController < ApplicationController
 
   # Ensure non course owner unable to edit the course that not belong to them
   # Admin bypass and allow to edit / update course
-  def course_owner
+  def book_owner
     @book = Book.find(params[:id])
-    user = Author.find(@book.user_id)
+    user = Author.find(@book.author_id)
 
     unless is_admin?
       if !current_user?(user)

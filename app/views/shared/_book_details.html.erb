@@ -1,11 +1,5 @@
 <% unless @hide_for_show %>
   <h4><%= link_to option.name, book_path(option.id) %></h4>
-<!--  <p>-->
-<!--    <b>Prerequisite :</b>-->
-    <%# option.prerequisites.each do |pre| %>
-      <%#= link_to pre.name, book_path(pre.id), class: "btn btn-info btn-xs" %>
-    <%# end %>
-<!--  </p>-->
 <% end %>
 
 <% unless @hide_for_view %>
@@ -16,7 +10,7 @@
     <% end %>
   </p>
   <p>
-    <b>Location :</b>
+    <b>Distributor :</b>
     <% option.distributors.each do |local| %>
       <%= link_to local.name, local, class: "btn btn-info btn-xs" %>
     <% end %>
@@ -25,11 +19,11 @@
 
 <% unless !@hide_for_show %>
   <p>
-    <b>Course Description : </b><br>
+    <b>Book Description : </b><br>
     <%= option.description %>
   </p>
   <p>
-    <%= image_tag option.image, class: 'img-thumbnail' %>
+    <%= image_tag(option.image.url, class: 'img-thumbnail') if option.image.url %>
   </p>
 <% else %>
   <p>Created <%= time_ago_in_words(option.created_at) %></p>
