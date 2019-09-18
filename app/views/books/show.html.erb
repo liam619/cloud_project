@@ -1,0 +1,38 @@
+<% provide(:title, @book.name) %>
+<div class="btm-line">
+  <h1><%= yield :title %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%# if @book.prerequisites.exists? %>
+<!--      <p><b>Prerequisites :</b>-->
+        <%# @book.prerequisites.each do |pre| %>
+          <%#= link_to pre.name, book_path(pre.id), class: "btn btn-primary btn-sm btn-margin" %>
+        <%# end %>
+<!--      </p>-->
+    <%# end %>
+  </div>
+  <div class="col-md-3 edit-button">
+    <% if is_admin? %>
+      <%= link_to "Delete", book_path(@book.id), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "You sure?"} %>
+    <% end %>
+    <%= link_to "Edit this course", edit_book_path, class: "btn btn-danger btn-sm" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-9 course_container">
+    <%= render "shared/book_details", option: @book %>
+  </div>
+  <div class="col-md-3 text-center">
+    <%= link_to @book.user do %>
+      <p><%= gravatar_for(@book.user, {size: 180}) %></p>
+      <p><h5>Brought to you by : <%= @book.user.name %></h5></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <%= link_to "Return to Course List", books_path, class: "btn btn-success btn-sm" %>
+</div>

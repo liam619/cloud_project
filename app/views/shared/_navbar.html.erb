@@ -1,0 +1,8 @@
+<div class="btm-line">
+  <h1><%= title %></h1>
+</div>
+<ul class="nav nav-tabs">
+  <% _var = request.fullpath.include?('/categories/') || request.fullpath.include?('/distributors/') ? request.fullpath : '' %>
+  <li class="<%= is_active?(['/books', _var]) %>"><%= link_to "Books", books_path %></li>
+  <li class="<%= is_active?('/authors') %>"><%= link_to "Authors", authors_path %></li>
+</ul>
