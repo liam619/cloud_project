@@ -36,7 +36,7 @@ class Author < ApplicationRecord
   # Remembers a user in the database for use in persistent sessions
   def remember
     self.remember_token = Author.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    update_attribute(:remember_digest, Author.digest(remember_token))
   end
 
   # Returns true if the given token matches the digest
