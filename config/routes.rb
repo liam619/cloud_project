@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   post 'books/:id/dislikebook', to: 'dislikebooks#new', as: 'dislikebook'
   delete 'books/:id/rating', to: 'books#reset', as: 'reset'
 
+  # Handle contact us form
+  get '/contacts', to: 'contacts#new'
+  post '/contacts', to: 'contacts#create'
+
   # Handle error and redirect to proper error page
   get '/404', to: 'errors#index', :via => :all, as: :error404
   get '/422', to: 'errors#unprocessable', :via => :all, as: :error422
