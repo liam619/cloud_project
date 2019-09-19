@@ -30,13 +30,13 @@
 <% end %>
 
 <p class="p-align-right">
-  <%# if is_admin? %>
-    <%#= link_to "Reset", reset_path(option.id), class: "btn btn-danger btn-sm", method: :delete %>
-  <%# end %>
-  <%#= link_to dislikecourse_path(option.id), method: :post, class: validateLogin, title: "Dislike" do %>
-    <%#= fa_icon "thumbs-down", text: "#{do_count("dislike", option.id)}" %>
-  <%# end %>
-  <%#= link_to likecourse_path(option.id), method: :post, class: validateLogin, title: "Like" do %>
-    <%#= fa_icon "thumbs-up", text: "#{do_count("like", option.id)}" %>
-  <%# end %>
+  <% if is_admin? %>
+    <%= link_to "Reset", reset_path(option.id), class: "btn btn-danger btn-sm", method: :delete %>
+  <% end %>
+  <%= link_to dislikebook_path(option.id), method: :post, title: "Dislike" do %>
+    <%= fa_icon "thumbs-down", text: "#{do_count("dislike", option.id)}" %>
+  <% end %>
+  <%= link_to likebook_path(option.id), method: :post, title: "Like" do %>
+    <%= fa_icon "thumbs-up", text: "#{do_count("like", option.id)}" %>
+  <% end %>
 </p>

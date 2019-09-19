@@ -13,11 +13,21 @@ module ApplicationHelper
     link_path.include?(request.path) ? "active" : ""
   end
 
-  # def do_count(vote, id)
-  #   if vote.eql? "like"
-  #     LikeCourse.where(course_id: id).count
-  #   else
-  #     DislikeCourse.where(course_id: id).count
-  #   end
-  # end
+  def do_count(vote, id)
+
+    meta = {book_id: id}
+    value = "0"
+
+    if vote.eql? "like"
+      if LikeBook.exists?(meta)
+        value = LikeBook.where(meta).pluck("like_count").first
+      end
+    else
+      if DislikeBook.exists?(meta)
+        value = DislikeBook.where(meta).pluck("dislike_count").first
+      end
+    end
+
+    value
+  end
 end
