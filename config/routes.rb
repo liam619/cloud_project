@@ -15,10 +15,6 @@ Rails.application.routes.draw do
   post 'books/:id/dislikebook', to: 'dislikebooks#new', as: 'dislikebook'
   delete 'books/:id/rating', to: 'books#reset', as: 'reset'
 
-  # Handle contact us form
-  # get '/contacts', to: 'contacts#new'
-  # post '/contacts', to: 'contacts#create'
-
   # Handle error and redirect to proper error page
   get '/404', to: 'errors#index', :via => :all, as: :error404
   get '/422', to: 'errors#unprocessable', :via => :all, as: :error422
@@ -29,7 +25,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :distributors
 
-  # namespace :api, defaults: {format: :json} do
-  #   resources :api_courses, param: :name, except: [:new, :create, :destroy]
-  # end
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :books, param: :name, except: [:new, :create, :edit, :destroy]
+    end
+  end
 end
