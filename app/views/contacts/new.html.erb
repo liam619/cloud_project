@@ -1,0 +1,13 @@
+<% provide(:title, "Contact Us") %>
+<div class="btm-line">
+  <h1><%= yield :title %></h1>
+</div>
+
+<%= render 'shared/error_messages', option: @contact %>
+
+<%= form_for(@contact, url: contacts_path) do |form| %>
+  <%= form.text_field :name, class: "input_box", placeholder: "Name" %>
+  <%= form.email_field :email, placeholder: "Email", class: "input_box" %>
+  <%= form.text_area :message, placeholder: "Message", size: "5x5", class: "input_box" %>
+  <%= form.submit :Send, class: "btn btn-danger" %>
+<% end %>
