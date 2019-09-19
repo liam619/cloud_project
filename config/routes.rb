@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # route for like/dislike course
-  # post 'courses/:id/likecourse', to: 'likecourses#new', as: 'likecourse'
-  # post 'courses/:id/dislikecourse', to: 'dislikecourses#new', as: 'dislikecourse'
-  # delete 'courses/:id/rating', to: 'courses#reset', as: 'reset'
+  post 'books/:id/likebook', to: 'likebooks#new', as: 'likebook'
+  post 'books/:id/dislikebook', to: 'dislikebooks#new', as: 'dislikebook'
+  delete 'books/:id/rating', to: 'books#reset', as: 'reset'
 
   # Handle contact us form
   # get '/contacts', to: 'contacts#new'

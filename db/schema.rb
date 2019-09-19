@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_141811) do
+ActiveRecord::Schema.define(version: 2019_09_18_235930) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -47,8 +47,22 @@ ActiveRecord::Schema.define(version: 2019_09_18_141811) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dislike_books", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "dislike_count", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "distributors", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "like_books", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "like_count", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

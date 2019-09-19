@@ -1,0 +1,2 @@
+class LikeBook < ApplicationRecord
+end

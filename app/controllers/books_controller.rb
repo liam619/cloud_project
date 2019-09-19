@@ -58,25 +58,21 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  # def reset
-  #   book = Book.find(params[:id])
-  #
-  #   if book.like_courses.count > 0 || book.dislike_courses.count > 0
-  #     book.like_courses.each do |like|
-  #       like.destroy
-  #     end
-  #
-  #     course.dislike_courses.each do |dislike|
-  #       dislike.destroy
-  #     end
-  #
-  #     flash[:success] = "#{course.name} rating reset to 0."
-  #     redirect_back(fallback_location: root_path)
-  #   else
-  #     flash[:danger] = "#{course.name}, nobody have opinions on this course yet."
-  #     redirect_back(fallback_location: root_path)
-  #   end
-  # end
+  def reset
+    book = Book.find(params[:id])
+    meta = {book_id: params[:id]}
+
+    if DislikeBook.exists?(meta) || LikeBook.exist?(meta)
+      DislikeBook.where(meta).first.destroy
+      LikeBook.where(meta).first.destroy
+
+      flash[:success] = "#{book.name} rating reset to 0."
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:danger] = "#{book.name}, nobody have opinions on this course yet."
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
   private
 
@@ -94,10 +90,6 @@ class BooksController < ApplicationController
     if params[:categories].present?
       params[:categories].collect! {|c| Category.find(c)}
     end
-
-    # if params[:prerequisites].present?
-    #   params[:prerequisites].collect! {|p| Prerequisite.where(id: p).first_or_initialize} # New prerequisite if not found
-    # end
   end
 
   # Ensure non course owner unable to edit the course that not belong to them

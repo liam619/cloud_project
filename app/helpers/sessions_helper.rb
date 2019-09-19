@@ -63,7 +63,7 @@ module SessionsHelper
   end
 
   # For liked and disliked button
-  def validateLogin
-    (!current_user.nil?) ? 'btn' : 'btn disabled'
-  end
+  # def validateLogin
+  #   (!current_user.nil?) ? 'btn' : 'btn disabled'
+  # end
 end
