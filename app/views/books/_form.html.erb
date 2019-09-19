@@ -16,9 +16,6 @@
       <%= form.label :categories %>
       <%= form.select :categories, options_from_collection_for_select(@categories, :id, :name, @book.categories.ids), {:include_hidden => false, :class => "form-control"}, {multiple: true} %>
 
-      <%#= form.label :prerequisites %>
-      <%#= form.select :prerequisites, options_from_collection_for_select(@books, :id, :name, @book.prerequisites.ids), {:include_hidden => false, :class => "form-control"}, {multiple: true} %>
-
       <%= form.label :distributors %>
       <%= form.select :distributors, options_from_collection_for_select(@distributors, :id, :name, @book.distributors.ids), {:include_hidden => false, :class => "form-control"}, {multiple: true} %>
 
