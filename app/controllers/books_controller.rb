@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :course_owner, only: [:edit, :update]
+  before_action :book_owner, only: [:edit, :update]
   before_action :logged_in_admin, only: [:destroy]
 
   def show
