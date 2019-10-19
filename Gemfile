@@ -15,6 +15,7 @@ gem 'jbuilder',                 '2.7.0'
 gem 'font-awesome-rails'
 gem 'bootsnap'
 gem 'responders'
+gem 'unicorn'
 
 group :development, :test do
   gem 'sqlite3',  '1.3.13'
@@ -37,7 +38,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg',       '0.20.0'
+  gem 'pg'
   gem 'fog',      '1.42'
 end
 
